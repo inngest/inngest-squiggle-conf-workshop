@@ -1,0 +1,12 @@
+{
+  "name": "inngest-squiggle-conf-workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "run:queue": "tsx"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
