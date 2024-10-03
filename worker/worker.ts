@@ -1,25 +1,25 @@
-import { QueueClient } from './queue';
+import { QueueClient } from '../lib/queue';
 import { handler } from './handler';
 
-const POLL_INTERVAL = 1000; // ms
+const POLL_INTERVAL = 1_000; // ms
 
 const queue = new QueueClient();
 
 export async function worker() {
   while (true) {
-    const item = await queue.dequeue().catch((err) => {
+    const event = await queue.dequeue().catch((err) => {
       console.log(`ERROR: Failed to fetch from queue: ${err}`);
       return null;
     });
 
-    if (item) {
-      console.log(`INFO: Processing queue item`, item);
+    if (event) {
+      console.log(`INFO: Processing queue item`, event.id);
       try {
-        await handler({ event: item });
+        await handler({ event });
       } catch (err) {
         console.log(`ERROR: Processing failed: ${err}`);
         // re-queue failed work
-        await queue.enqueue(item);
+        await queue.enqueue(event);
       }
     } else {
       console.log('INFO: No queue items available');

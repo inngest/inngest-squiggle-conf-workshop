@@ -1,10 +1,19 @@
 {
   "name": "inngest-squiggle-conf-workshop",
   "version": "1.0.0",
-  "description": "",
+  "description": "Companion for the Squiggle conference 2024 workshop",
   "main": "index.js",
   "scripts": {
-    "run:queue": "tsx"
+    "start:queue": "tsx ./queue/index.ts",
+    "start:worker": "tsx --watch ./worker/index.ts",
+    "send": "tsx ./worker/scripts/send.ts"
+  },
+  "dependencies": {
+    "fastify": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.4",
+    "tsx": "^4.19.1"
   },
   "keywords": [],
   "author": "",
