@@ -4,7 +4,7 @@ import { Queue } from './queue';
 const PORT = 4040;
 
 const server = Fastify({
-  logger: true,
+  logger: false,
 });
 
 const q = new Queue();

@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start:queue": "tsx ./queue/index.ts",
-    "start:worker": "tsx --watch ./worker/index.ts",
+    "dev:worker": "tsx --watch ./worker/index.ts",
+    "dev:durable-worker": "tsx --watch ./durable-worker/index.ts",
+    "start:worker": "npm run start:queue & npm run dev:worker",
     "send": "tsx ./worker/scripts/send.ts"
   },
   "dependencies": {

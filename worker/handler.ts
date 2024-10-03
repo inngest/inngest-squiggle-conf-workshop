@@ -1,21 +1,18 @@
-import { expensiveLLM, slowLLM } from '../lib/ai';
+import ai from '../lib/ai';
+import crm from '../lib/crm';
+import { template, emailAPI } from '../lib/email';
 
-export async function handler({ event, step }) {
-  console.log('event:', event);
+export async function handler({ event }) {
+  const { user, signupSurvey } = event.data;
 
-  const result = await expensiveLLM(event.data.prompt);
+  const personalizedMessage = await ai.slowLLM(user, signupSurvey);
 
-  // const row = await db.insert(result);
+  const emailBody = await template.compile(
+    'welcome_email',
+    personalizedMessage
+  );
 
-  const emailBody = await slowLLM(event.data.prompt);
+  await emailAPI.send(user, emailBody);
 
-  // const user = await db.select(event.data.userId);
-  // await emailAPI.send(user, emailBody);
-
-  return 'true!!';
-
-  // const emailBody = await anotherExpensiveCallToAI(result);
-
-  // const user = await db.select(event.data.userId);
-  // await emailAPI.send(user, emailBody);
+  await crm.addCustomer(user);
 }
