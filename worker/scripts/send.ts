@@ -1,12 +1,20 @@
 import { QueueClient } from '../../lib/queue';
+import { createId } from '../../lib/ids';
 
 const queue = new QueueClient();
 
 const item = {
-  name: 'generate.result',
+  name: 'user.signup',
   data: {
-    userId: '2mstIkLYYnIJLXGnbV8glHtHWp5',
-    prompt: `You are an AI assistant. Please help with...`,
+    user: {
+      id: createId(),
+      name: 'Taylor Person',
+      company: 'Acme, Inc.',
+    },
+    signupSurvey: {
+      teamSize: '10-30',
+      industry: 'Technology',
+    },
   },
 };
 

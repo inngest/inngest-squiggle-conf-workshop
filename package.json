@@ -11,10 +11,12 @@
     "send": "tsx ./worker/scripts/send.ts"
   },
   "dependencies": {
-    "fastify": "^5.0.0"
+    "fastify": "^5.0.0",
+    "inngest": "^3.22.13"
   },
   "devDependencies": {
     "@types/node": "^22.7.4",
+    "inngest-cli": "^1.1.0",
     "tsx": "^4.19.1"
   },
   "keywords": [],

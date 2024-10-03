@@ -49,9 +49,9 @@ server.get('/size', async function handler(request, reply) {
 
 async function main() {
   // Seed the queue for testing
-  q.enqueue({ data: { userId: 'kknxn81024' } });
-  q.enqueue({ data: { userId: '09n39g8n82' } });
-  q.enqueue({ data: { userId: 'n031908h31' } });
+  // q.enqueue({ data: { userId: 'kknxn81024' } });
+  // q.enqueue({ data: { userId: '09n39g8n82' } });
+  // q.enqueue({ data: { userId: 'n031908h31' } });
 
   try {
     console.log(`Queue started on port ${PORT}`);
