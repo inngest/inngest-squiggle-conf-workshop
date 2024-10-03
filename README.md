@@ -8,10 +8,16 @@ cd inngest-squiggle-conf-workshop
 npm install
 ```
 
-Start the worker
+Start the worker:
 
 ```
 npm run start:worker
+```
+
+In another terminal session, send an event to trigger the worker:
+
+```
+npm run send
 ```
 
 ## Directories
