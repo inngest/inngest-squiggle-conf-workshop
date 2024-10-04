@@ -7,9 +7,12 @@
     "start:queue": "tsx ./queue/index.ts",
     "dev:worker": "tsx --watch ./01-worker/index.ts",
     "dev:durable-worker": "tsx --watch ./02-durable-worker/index.ts",
+    "dev:inngest": "tsx --watch ./03-inngest/index.ts",
     "start:worker": "npm run start:queue & npm run dev:worker",
     "start:durable-worker": "npm run start:queue & npm run dev:durable-worker",
-    "send": "tsx ./scripts/send.ts"
+    "start:inngest": "npx inngest-cli dev -u http://localhost:3000/api/inngest --no-discovery & npm run dev:inngest",
+    "send": "tsx ./scripts/send.ts",
+    "send:inngest": "tsx ./scripts/sendInngest.ts"
   },
   "dependencies": {
     "fastify": "^5.0.0",
