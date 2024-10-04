@@ -20,8 +20,14 @@ In another terminal session, send an event to trigger the worker:
 npm run send
 ```
 
+When you're ready to make your worker "durable", run:
+
+```
+npm run start:worker
+```
+
 ## Directories
 
-- `/worker` - The worker and handler code that
-- `/durable-worker` - Where you'll make the worker durable!
-- `/queue` - A simple queue
+- `/01-worker` - The worker and handler code that
+- `/02-durable-worker` - Where you'll make the worker durable!
+- `/queue` - A simple queue, this is just to power the demo
