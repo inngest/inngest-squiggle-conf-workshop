@@ -1,5 +1,5 @@
-import { QueueClient } from '../../lib/queue';
-import { createId } from '../../lib/ids';
+import { QueueClient } from '../lib/queue';
+import { createId } from '../lib/ids';
 
 const queue = new QueueClient();
 
